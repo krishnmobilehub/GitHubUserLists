@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c0t-d6-VZl">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Github Users-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="UsersListViewController" id="BYZ-38-t0r" customClass="UsersListViewController" customModule="GithubUserList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YKH-mi-FKp">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <subviews>
+                                    <searchBar hidden="YES" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="9se-Kt-Ogt">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pkj-Eq-RZl">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YKH-mi-FKp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="2ol-JJ-zA3"/>
+                            <constraint firstItem="YKH-mi-FKp" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="5dt-wr-fR4"/>
+                            <constraint firstItem="YKH-mi-FKp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RV3-HQ-K6Q"/>
+                            <constraint firstItem="YKH-mi-FKp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="s3V-jQ-OUZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Github Users" id="V2D-hf-P12">
+                        <barButtonItem key="backBarButtonItem" title=" " id="2RE-A7-GaS"/>
+                        <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="jDV-IU-w0c">
+                            <color key="tintColor" red="0.21176470588235294" green="0.60784313725490191" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="searchUserClicked:" destination="BYZ-38-t0r" id="E4l-va-MkY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="userListTableView" destination="pkj-Eq-RZl" id="Dtm-Tl-qWZ"/>
+                        <outlet property="userSearchBar" destination="9se-Kt-Ogt" id="CSS-0Q-YdD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1013.0434782608696" y="56.919642857142854"/>
+        </scene>
+        <!--User Detail View Controller-->
+        <scene sceneID="G3Y-pN-YJf">
+            <objects>
+                <viewController storyboardIdentifier="UserDetailViewController" id="zuz-Da-ngJ" customClass="UserDetailViewController" customModule="GithubUserList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4eh-v8-oqW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="e3s-bg-rzh">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="zuz-Da-ngJ" id="GyJ-Rl-eOP"/>
+                                    <outlet property="delegate" destination="zuz-Da-ngJ" id="Qil-fA-zsv"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vZC-ZK-M7B"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="e3s-bg-rzh" firstAttribute="leading" secondItem="vZC-ZK-M7B" secondAttribute="leading" id="975-8f-bvm"/>
+                            <constraint firstItem="e3s-bg-rzh" firstAttribute="top" secondItem="4eh-v8-oqW" secondAttribute="top" id="TbE-2Q-Doa"/>
+                            <constraint firstItem="vZC-ZK-M7B" firstAttribute="trailing" secondItem="e3s-bg-rzh" secondAttribute="trailing" id="Z8F-Mv-4cW"/>
+                            <constraint firstAttribute="bottom" secondItem="e3s-bg-rzh" secondAttribute="bottom" id="jnD-qF-dIS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="userDetailTableView" destination="e3s-bg-rzh" id="WbB-bR-Bkj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Hf-7Z-9ku" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1857.9710144927537" y="53.571428571428569"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="agd-4Y-18B">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c0t-d6-VZl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zTU-ja-NBA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.21176470589999999" green="0.60784313729999995" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.21176470589999999" green="0.60784313729999995" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.21176470589999999" green="0.60784313729999995" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.21176470589999999" green="0.60784313729999995" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Rct-0q-qzP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sqp-C7-old" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="102.89855072463769" y="56.919642857142854"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
